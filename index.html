@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sivakumar Mathappan – Network Security Engineer specializing in Sophos Firewall, FortiGate, Microsoft 365, VMware ESXi, and cybersecurity operations.">
+<meta name="keywords" content="Network Security Engineer, Cybersecurity, CCNP, CCNA, Sophos Firewall, FortiGate, Microsoft 365, VMware, Cybersecurity">
+<title>Sivakumar Mathappan | Network Security Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #0B1120;
+    --bg-2:      #0F172A;
+    --bg-card:   #111827;
+    --bg-card2:  #1a2236;
+    --border:    #1E293B;
+    --border-2:  #243047;
+    --accent:    #2563EB;
+    --accent-2:  #3B82F6;
+    --accent-glow: rgba(37,99,235,0.15);
+    --text:      #F1F5F9;
+    --text-2:    #CBD5E1;
+    --text-3:    #94A3B8;
+    --text-4:    #64748B;
+    --white:     #FFFFFF;
+    --green:     #10B981;
+    --radius:    10px;
+    --radius-lg: 16px;
+    --transition: 0.22s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(11,17,32,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    height: 64px;
+    display: flex; align-items: center;
+  }
+  .nav-inner {
+    max-width: 1200px; width: 100%; margin: 0 auto;
+    padding: 0 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-size: 16px; font-weight: 700; color: var(--white);
+    text-decoration: none; letter-spacing: -0.3px;
+  }
+  .nav-logo span { color: var(--accent-2); }
+  .nav-links {
+    display: flex; gap: 8px; list-style: none;
+  }
+  .nav-links a {
+    font-size: 13.5px; font-weight: 500; color: var(--text-3);
+    text-decoration: none; padding: 6px 14px; border-radius: 6px;
+    transition: color var(--transition), background var(--transition);
+    letter-spacing: 0.01em;
+  }
+  .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+  .nav-cta {
+    background: var(--accent); color: var(--white) !important;
+    padding: 7px 18px !important; border-radius: 7px !important;
+    font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: var(--accent-2) !important; }
+
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px;
+  }
+  .hamburger span {
+    width: 22px; height: 2px; background: var(--text-2); border-radius: 2px;
+    transition: var(--transition);
+  }
+
+  /* ── CONTAINER ── */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+  /* ── SECTION BASE ── */
+  section { padding: 100px 0; }
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent-2);
+    margin-bottom: 16px;
+  }
+  .section-label::before {
+    content: ''; display: block;
+    width: 24px; height: 1.5px; background: var(--accent-2);
+  }
+  .section-title {
+    font-size: clamp(28px, 4vw, 40px); font-weight: 800;
+    color: var(--white); letter-spacing: -0.5px; line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 16px; color: var(--text-3); max-width: 560px; line-height: 1.75;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 55% at 60% 50%, rgba(37,99,235,0.09) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 15% 20%, rgba(37,99,235,0.05) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 420px;
+    gap: 80px; align-items: center;
+  }
+  .hero-status {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25);
+    border-radius: 100px; padding: 5px 14px;
+    font-size: 12px; font-weight: 600; color: var(--green);
+    letter-spacing: 0.04em; margin-bottom: 28px;
+  }
+  .hero-status-dot {
+    width: 7px; height: 7px; background: var(--green);
+    border-radius: 50%; animation: pulse 2.2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(0.85); }
+  }
+  .hero-name {
+    font-size: clamp(28px, 4.2vw, 54px);
+    font-weight: 800; color: var(--white);
+    letter-spacing: -1.2px; line-height: 1.05;
+    margin-bottom: 8px; white-space: nowrap;
+  }
+  .hero-title {
+    font-size: clamp(14px, 1.9vw, 18px);
+    font-weight: 500; color: var(--accent-2);
+    letter-spacing: -0.2px; margin-bottom: 24px;
+  }
+  .hero-tagline {
+    font-size: 16px; color: var(--text-3);
+    line-height: 1.8; max-width: 500px; margin-bottom: 36px;
+    border-left: 2px solid var(--accent);
+    padding-left: 18px;
+  }
+  .hero-badges {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px;
+  }
+  .badge {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.06em;
+    padding: 6px 14px; border-radius: 6px;
+    border: 1px solid var(--border-2);
+    background: var(--bg-card); color: var(--text-2);
+  }
+  .badge-accent {
+    background: rgba(37,99,235,0.12);
+    border-color: rgba(37,99,235,0.3);
+    color: var(--accent-2);
+  }
+  /* Achievement strip below profile card */
+  .achievement-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 12px; margin-top: 16px;
+  }
+  .achievement-item {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 14px 10px;
+    text-align: center; transition: var(--transition);
+  }
+  .achievement-item:hover { border-color: rgba(37,99,235,0.4); transform: translateY(-2px); }
+  .achievement-item strong {
+    display: block; font-size: 15px; font-weight: 800; color: var(--accent-2);
+    margin-bottom: 4px; letter-spacing: -0.3px;
+  }
+  .achievement-item span { font-size: 11px; color: var(--text-4); font-weight: 500; line-height: 1.4; }
+  /* Tech stack section */
+  .tech-stack-section {
+    margin-top: 16px;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 18px 20px;
+  }
+  .tech-stack-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--text-4); margin-bottom: 12px;
+  }
+  .tech-stack-chips {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .tech-stack-chip {
+    font-size: 11.5px; font-weight: 600; padding: 5px 12px;
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border-2);
+    border-radius: 5px; color: var(--text-3); transition: var(--transition);
+  }
+  .tech-stack-chip:hover {
+    background: rgba(37,99,235,0.1); border-color: rgba(37,99,235,0.3);
+    color: var(--accent-2);
+  }
+  .hero-actions {
+    display: flex; flex-wrap: wrap; gap: 12px;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 14px; font-weight: 600; padding: 12px 24px;
+    border-radius: 8px; text-decoration: none;
+    transition: var(--transition); cursor: pointer;
+    border: none; letter-spacing: 0.01em;
+  }
+  .btn-primary {
+    background: var(--accent); color: var(--white);
+    box-shadow: 0 4px 20px rgba(37,99,235,0.3);
+  }
+  .btn-primary:hover {
+    background: var(--accent-2);
+    box-shadow: 0 6px 28px rgba(37,99,235,0.45);
+    transform: translateY(-1px);
+  }
+  .btn-secondary {
+    background: transparent; color: var(--text-2);
+    border: 1px solid var(--border-2);
+  }
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.04);
+    border-color: var(--text-4); color: var(--white);
+    transform: translateY(-1px);
+  }
+
+  /* ── PROFILE CARD ── */
+  .profile-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    display: flex; flex-direction: column; align-items: center; gap: 20px;
+    position: relative; overflow: hidden;
+  }
+  .profile-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2), #60A5FA);
+  }
+  .profile-img-wrap {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent) 0%, #1D4ED8 100%);
+    display: flex; align-items: center; justify-content: center;
+    border: 3px solid var(--border-2); flex-shrink: 0;
+    font-size: 44px; color: var(--white); font-weight: 700;
+    position: relative; overflow: hidden;
+  }
+  .profile-img-wrap img {
+    width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+  }
+  .profile-img-wrap::after {
+    content: '';
+    position: absolute; bottom: 6px; right: 6px;
+    width: 14px; height: 14px; background: var(--green);
+    border-radius: 50%; border: 2px solid var(--bg-card);
+  }
+  .profile-info { text-align: center; }
+  .profile-info h3 { font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .profile-info p { font-size: 13px; color: var(--text-3); }
+  .profile-stats {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px; background: var(--border);
+    border-radius: 10px; overflow: hidden; width: 100%;
+  }
+  .stat-item {
+    background: var(--bg-card2);
+    padding: 16px 12px; text-align: center;
+  }
+  .stat-item strong {
+    display: block; font-size: 20px; font-weight: 800;
+    color: var(--white); letter-spacing: -0.5px;
+    margin-bottom: 3px;
+  }
+  .stat-item span { font-size: 11px; color: var(--text-4); font-weight: 500; letter-spacing: 0.04em; }
+  .certs-list { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .cert-chip {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    background: rgba(37,99,235,0.12); border: 1px solid rgba(37,99,235,0.28);
+    color: var(--accent-2); border-radius: 5px; padding: 4px 11px;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--bg-2); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .about-pillars {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 32px;
+  }
+  .pillar {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 18px 20px;
+    transition: var(--transition);
+  }
+  .pillar:hover { border-color: rgba(37,99,235,0.4); transform: translateY(-2px); }
+  .pillar-icon {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: rgba(37,99,235,0.12); display: flex; align-items: center;
+    justify-content: center; margin-bottom: 10px; font-size: 18px;
+  }
+  .pillar h4 { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .pillar p { font-size: 12px; color: var(--text-4); line-height: 1.5; }
+  .about-img-side {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 32px; position: relative;
+  }
+  .about-quote {
+    font-size: 15px; color: var(--text-2); line-height: 1.85;
+    font-style: italic; margin-bottom: 28px;
+    border-left: 2px solid var(--accent); padding-left: 18px;
+  }
+  .about-detail-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .about-detail-list li {
+    font-size: 13.5px; color: var(--text-3);
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .about-detail-list li::before {
+    content: ''; width: 6px; height: 6px; background: var(--accent-2);
+    border-radius: 50%; margin-top: 6px; flex-shrink: 0;
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--bg); }
+  .timeline { display: flex; flex-direction: column; gap: 0; margin-top: 56px; }
+  .timeline-item {
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 0; position: relative;
+  }
+  .timeline-left {
+    padding: 0 40px 0 0; text-align: right; position: relative;
+  }
+  .timeline-left::after {
+    content: ''; position: absolute; right: -1px; top: 8px;
+    width: 1px; bottom: -1px; background: var(--border);
+  }
+  .timeline-item:last-child .timeline-left::after { display: none; }
+  .timeline-dot {
+    position: absolute; right: -9px; top: 6px;
+    width: 17px; height: 17px; border-radius: 50%;
+    background: var(--bg); border: 2px solid var(--accent);
+    z-index: 2;
+  }
+  .timeline-dot::after {
+    content: ''; position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+  }
+  .timeline-period {
+    font-size: 12px; font-weight: 600; color: var(--text-4);
+    letter-spacing: 0.04em; margin-bottom: 4px; white-space: nowrap;
+  }
+  .timeline-type {
+    font-size: 11px; color: var(--text-4); letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .timeline-right { padding: 0 0 60px 40px; }
+  .timeline-item:last-child .timeline-right { padding-bottom: 0; }
+  .exp-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 28px 32px;
+    transition: var(--transition);
+  }
+  .exp-card:hover { border-color: var(--border-2); transform: translateX(4px); }
+  .exp-header { margin-bottom: 20px; }
+  .exp-role {
+    font-size: 18px; font-weight: 700; color: var(--white);
+    letter-spacing: -0.3px; margin-bottom: 5px;
+  }
+  .exp-company {
+    font-size: 14px; font-weight: 500; color: var(--accent-2); margin-bottom: 3px;
+  }
+  .exp-contract {
+    display: inline-block;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.07em;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 4px;
+    background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.25);
+    color: #F59E0B; margin-top: 6px;
+  }
+  .exp-current {
+    display: inline-block;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.07em;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 4px;
+    background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25);
+    color: var(--green); margin-top: 6px;
+  }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .exp-tag {
+    font-size: 12px; font-weight: 500; padding: 5px 12px;
+    background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+    border-radius: 5px; color: var(--text-3);
+    transition: var(--transition);
+  }
+  .exp-tag:hover {
+    background: rgba(37,99,235,0.1); border-color: rgba(37,99,235,0.3);
+    color: var(--accent-2);
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--bg-2); }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 20px; margin-top: 56px;
+  }
+  .skill-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 28px;
+    transition: var(--transition);
+  }
+  .skill-card:hover { border-color: rgba(37,99,235,0.35); transform: translateY(-3px); }
+  .skill-card-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+  }
+  .skill-icon {
+    width: 42px; height: 42px; border-radius: 10px;
+    background: rgba(37,99,235,0.12); border: 1px solid rgba(37,99,235,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .skill-card-header h3 { font-size: 15px; font-weight: 700; color: var(--white); }
+  .skill-items { display: flex; flex-direction: column; gap: 10px; }
+  .skill-item {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .skill-name { font-size: 13.5px; color: var(--text-2); font-weight: 500; }
+  .skill-bar-wrap {
+    width: 90px; height: 4px; background: var(--border);
+    border-radius: 2px; overflow: hidden;
+  }
+  .skill-bar {
+    height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    border-radius: 2px; transition: width 1s ease;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--bg); }
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; margin-top: 56px;
+  }
+  .project-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 0;
+    transition: var(--transition); overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .project-card:hover { border-color: rgba(37,99,235,0.35); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+  .project-img {
+    height: 140px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px; position: relative; overflow: hidden;
+  }
+  .project-img-1 { background: linear-gradient(135deg, #0F2B63 0%, #1a3a7a 100%); }
+  .project-img-2 { background: linear-gradient(135deg, #0B2035 0%, #0c2e4e 100%); }
+  .project-img-3 { background: linear-gradient(135deg, #1A1040 0%, #251555 100%); }
+  .project-num {
+    position: absolute; top: 14px; right: 18px;
+    font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.18);
+    letter-spacing: 0.1em;
+  }
+  .project-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+  .project-title { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 10px; letter-spacing: -0.2px; }
+  .project-desc { font-size: 13.5px; color: var(--text-3); line-height: 1.7; margin-bottom: 20px; flex: 1; }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 7px; }
+  .tech-tag {
+    font-size: 11px; font-weight: 600; padding: 4px 10px;
+    background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.22);
+    color: var(--accent-2); border-radius: 5px; letter-spacing: 0.02em;
+  }
+
+  /* ── CYBER LAB ── */
+  #lab { background: var(--bg-2); }
+  .lab-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; margin-top: 56px;
+  }
+  .lab-tools-title {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--text-4); margin-bottom: 16px;
+  }
+  .lab-tools { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; }
+  .lab-tool {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 16px;
+    font-size: 13px; font-weight: 600; color: var(--text-2);
+    transition: var(--transition);
+  }
+  .lab-tool:hover {
+    border-color: rgba(37,99,235,0.35); color: var(--white);
+    transform: translateY(-1px);
+  }
+  .lab-tool-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  }
+  .lab-capabilities { display: flex; flex-direction: column; gap: 14px; }
+  .lab-cap {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 18px 20px;
+    display: flex; align-items: flex-start; gap: 14px;
+    transition: var(--transition);
+  }
+  .lab-cap:hover { border-color: rgba(37,99,235,0.3); }
+  .lab-cap-icon {
+    font-size: 20px; flex-shrink: 0; margin-top: 2px;
+  }
+  .lab-cap-text h4 { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 3px; }
+  .lab-cap-text p { font-size: 12.5px; color: var(--text-4); line-height: 1.6; }
+  .lab-visual {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 28px;
+    font-family: 'Courier New', monospace;
+    font-size: 12.5px; color: #4ADE80;
+    line-height: 1.9; overflow: hidden;
+  }
+  .lab-visual .dim { color: var(--text-4); }
+  .lab-visual .blue { color: #60A5FA; }
+  .lab-visual .yellow { color: #FBBF24; }
+  .lab-visual .red { color: #F87171; }
+
+  /* ── CERTIFICATIONS ── */
+  #certifications { background: var(--bg); }
+  .certs-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 20px; margin-top: 56px;
+  }
+  .cert-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 28px 22px;
+    text-align: center; transition: var(--transition);
+    position: relative; overflow: hidden;
+  }
+  .cert-card:hover { border-color: rgba(37,99,235,0.4); transform: translateY(-4px); }
+  .cert-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0; transition: var(--transition);
+  }
+  .cert-card:hover::before { opacity: 1; }
+  .cert-logo {
+    width: 60px; height: 60px; border-radius: 12px;
+    margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;
+    font-size: 28px; background: rgba(37,99,235,0.1); border: 1px solid rgba(37,99,235,0.2);
+  }
+  .cert-card h3 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 6px; line-height: 1.35; }
+  .cert-card p { font-size: 12px; color: var(--text-4); }
+  .cert-verified {
+    display: inline-flex; align-items: center; gap: 5px; margin-top: 12px;
+    font-size: 11px; font-weight: 600; color: var(--green);
+    background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2);
+    padding: 4px 10px; border-radius: 100px;
+  }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--bg-2); }
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 56px; }
+  .edu-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 32px;
+    transition: var(--transition);
+  }
+  .edu-card:hover { border-color: rgba(37,99,235,0.35); }
+  .edu-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(37,99,235,0.12); border: 1px solid rgba(37,99,235,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin-bottom: 18px;
+  }
+  .edu-degree { font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 6px; letter-spacing: -0.2px; }
+  .edu-field { font-size: 14px; color: var(--accent-2); font-weight: 500; margin-bottom: 4px; }
+  .edu-meta { font-size: 13px; color: var(--text-4); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--bg); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 56px;
+  }
+  .contact-info h3 { font-size: 22px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+  .contact-info p { font-size: 15px; color: var(--text-3); line-height: 1.8; margin-bottom: 36px; }
+  .contact-items { display: flex; flex-direction: column; gap: 16px; }
+  .contact-item {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px 20px;
+    text-decoration: none; transition: var(--transition);
+  }
+  .contact-item:hover { border-color: rgba(37,99,235,0.35); transform: translateX(3px); }
+  .contact-item-icon {
+    width: 38px; height: 38px; border-radius: 9px;
+    background: rgba(37,99,235,0.12); display: flex; align-items: center;
+    justify-content: center; font-size: 18px; flex-shrink: 0;
+  }
+  .contact-item-label { font-size: 11px; color: var(--text-4); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 2px; }
+  .contact-item-value { font-size: 14px; color: var(--text-2); font-weight: 500; }
+  .contact-form { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px; }
+  .form-group { margin-bottom: 20px; }
+  .form-label { font-size: 13px; font-weight: 600; color: var(--text-2); margin-bottom: 8px; display: block; }
+  .form-input, .form-textarea {
+    width: 100%; background: var(--bg-2);
+    border: 1px solid var(--border-2); border-radius: 8px;
+    padding: 12px 16px; font-family: 'Inter', sans-serif;
+    font-size: 14px; color: var(--text); outline: none;
+    transition: var(--transition); resize: none;
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: var(--text-4); }
+  .form-input:focus, .form-textarea:focus {
+    border-color: var(--accent); background: rgba(37,99,235,0.04);
+  }
+  .form-textarea { height: 130px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--bg-2); border-top: 1px solid var(--border);
+    padding: 40px 0;
+  }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-copy { font-size: 13px; color: var(--text-4); }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 13px; color: var(--text-4); text-decoration: none; transition: var(--transition); }
+  .footer-links a:hover { color: var(--accent-2); }
+
+  /* ── REVEAL ANIMATION ── */
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── MOBILE MENU ── */
+  .mobile-menu {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(11,17,32,0.97);
+    flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-size: 20px; font-weight: 600; color: var(--text-2);
+    text-decoration: none; padding: 14px 40px;
+    transition: color var(--transition);
+  }
+  .mobile-menu a:hover { color: var(--white); }
+  .mobile-menu-close {
+    position: absolute; top: 20px; right: 28px;
+    background: none; border: none; font-size: 28px;
+    color: var(--text-3); cursor: pointer;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .profile-card { max-width: 440px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    .certs-grid { grid-template-columns: repeat(2, 1fr); }
+    .lab-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .container { padding: 0 20px; }
+    section { padding: 72px 0; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .timeline-item { grid-template-columns: 1fr; }
+    .timeline-left { display: none; }
+    .timeline-right { padding: 0 0 28px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .certs-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+    .about-pillars { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .certs-grid { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; }
+    .btn { width: 100%; justify-content: center; }
+    .profile-stats { grid-template-columns: 1fr 1fr 1fr; }
+    .achievement-strip { grid-template-columns: 1fr 1fr; }
+    .hero-name { white-space: normal; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .hero-status-dot { animation: none; }
+  }
+  /* ── RESUME DOWNLOAD ── */
+  #resume { background: var(--bg-2); }
+  .resume-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-2);
+    border-radius: var(--radius-lg);
+    padding: 48px 56px;
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+    position: relative; overflow: hidden;
+    margin-top: 56px;
+  }
+  .resume-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2), #60A5FA);
+  }
+  .resume-card::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(37,99,235,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .resume-card-left { flex: 1; }
+  .resume-card-left h3 {
+    font-size: 24px; font-weight: 800; color: var(--white);
+    letter-spacing: -0.4px; margin-bottom: 10px;
+  }
+  .resume-card-left p {
+    font-size: 15px; color: var(--text-3); line-height: 1.75; max-width: 520px;
+  }
+  .resume-meta {
+    display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px;
+  }
+  .resume-meta-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: var(--text-4); font-weight: 500;
+  }
+  .resume-meta-item svg { flex-shrink: 0; }
+  .resume-card-right {
+    display: flex; flex-direction: column; gap: 14px; flex-shrink: 0;
+  }
+  .btn-download-main {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 15px; font-weight: 700; padding: 16px 32px;
+    border-radius: 10px; text-decoration: none;
+    background: var(--accent); color: var(--white);
+    box-shadow: 0 4px 24px rgba(37,99,235,0.35);
+    transition: var(--transition); white-space: nowrap;
+  }
+  .btn-download-main:hover {
+    background: var(--accent-2);
+    box-shadow: 0 6px 32px rgba(37,99,235,0.5);
+    transform: translateY(-2px);
+  }
+  .btn-view-main {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-size: 13.5px; font-weight: 600; padding: 12px 28px;
+    border-radius: 8px; text-decoration: none;
+    background: transparent; color: var(--text-2);
+    border: 1px solid var(--border-2);
+    transition: var(--transition); white-space: nowrap;
+  }
+  .btn-view-main:hover {
+    background: rgba(255,255,255,0.05);
+    color: var(--white); border-color: var(--text-4);
+    transform: translateY(-1px);
+  }
+  .resume-preview-row {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px; margin-top: 32px;
+  }
+  .resume-preview-chip {
+    background: var(--bg-card2); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px 18px;
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .resume-preview-chip-icon {
+    font-size: 20px; flex-shrink: 0;
+    width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+    background: rgba(37,99,235,0.1); border-radius: 8px;
+  }
+  .resume-preview-chip h4 { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .resume-preview-chip p { font-size: 12px; color: var(--text-4); line-height: 1.5; }
+
+  @media (max-width: 768px) {
+    .resume-card { flex-direction: column; padding: 32px 24px; }
+    .resume-card-right { width: 100%; }
+    .btn-download-main, .btn-view-main { width: 100%; justify-content: center; }
+    .resume-preview-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo"></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="menuClose" aria-label="Close menu">✕</button>
+  <a href="#about" class="menu-link">About</a>
+  <a href="#experience" class="menu-link">Experience</a>
+  <a href="#skills" class="menu-link">Skills</a>
+  <a href="#projects" class="menu-link">Projects</a>
+  <a href="#lab" class="menu-link">Cyber Lab</a>
+  <a href="#certifications" class="menu-link">Certifications</a>
+  <a href="#resume" class="menu-link">Resume</a>
+  <a href="#contact" class="menu-link">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-status">
+          <div class="hero-status-dot"></div>
+          Available for Opportunities
+        </div>
+        <h1 class="hero-name">Sivakumar Mathappan</h1>
+        <p class="hero-title">Network Security Engineer | Cybersecurity Enthusiast</p>
+        <p class="hero-tagline">
+          Securing Networks. Managing Infrastructure.<br>Protecting Business Operations.
+        </p>
+        <div class="hero-badges">
+          <span class="badge badge-accent">2 Years Experience</span>
+          <span class="badge">CCNP</span>
+          <span class="badge">CCNA</span>
+          <span class="badge">MSc Cyber Security</span>
+          <span class="badge">MCSA</span>
+        </div>
+        <div class="hero-actions">
+          <a href="resume.pdf" download="sivakumarresume.pdf" class="btn btn-primary">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
+            Download Resume
+          </a>
+          <a href="https://www.linkedin.com/in/sivakumar-mathappan-2745891a7" target="_blank" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/sivakumarskm" target="_blank" class="btn btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            GitHub
+          </a>
+          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+      </div>
+      <div>
+        <div class="profile-card">
+          <div class="profile-img-wrap">
+            <img src="profile.jpg" alt="Sivakumar Mathappan" onerror="this.style.display='none';this.parentElement.innerHTML='S';">
+          </div>
+          <div class="profile-info">
+            <h3>Sivakumar Mathappan</h3>
+            <p>Network Security Engineer · Salem, Tamil Nadu</p>
+          </div>
+          <div class="profile-stats">
+            <div class="stat-item"><strong>2</strong><span>Years Exp</span></div>
+            <div class="stat-item"><strong>4</strong><span>Projects</span></div>
+            <div class="stat-item"><strong>4</strong><span>Certs</span></div>
+          </div>
+          <div class="certs-list">
+            <span class="cert-chip">CCNP</span>
+            <span class="cert-chip">CCNA</span>
+            <span class="cert-chip">MCSA</span>
+            <span class="cert-chip">MSc Cyber Security</span>
+          </div>
+        </div>
+        <!-- Achievements Strip -->
+        <div class="achievement-strip">
+          <div class="achievement-item">
+            <strong>2 Yrs</strong>
+            <span>Experience</span>
+          </div>
+          <div class="achievement-item">
+            <strong>50+</strong>
+            <span>Network Issues Resolved</span>
+          </div>
+          <div class="achievement-item">
+            <strong>20+</strong>
+            <span>Firewall Deployments</span>
+          </div>
+          <div class="achievement-item">
+            <strong>4</strong>
+            <span>Enterprise Projects</span>
+          </div>
+        </div>
+        <!-- Current Tech Stack -->
+        <div class="tech-stack-section">
+          <div class="tech-stack-label">Current Tech Stack</div>
+          <div class="tech-stack-chips">
+            <span class="tech-stack-chip">Sophos Firewall</span>
+            <span class="tech-stack-chip">FortiGate Firewall</span>
+            <span class="tech-stack-chip">Microsoft 365</span>
+            <span class="tech-stack-chip">VMware ESXi</span>
+            <span class="tech-stack-chip">Cisco Meraki</span>
+            <span class="tech-stack-chip">Endpoint Central</span>
+            <span class="tech-stack-chip">Seqrite Endpoint Security</span>
+            <span class="tech-stack-chip">Wazuh</span>
+            <span class="tech-stack-chip">Security Onion</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal">
+        <span class="section-label">About Me</span>
+        <h2 class="section-title">Building Secure, Resilient Network Infrastructure</h2>
+        <p class="section-desc">
+          A dedicated Network & Security Engineer with hands-on experience designing, deploying, and securing enterprise-grade infrastructure. Proficient in next-generation firewalls, endpoint protection, Microsoft cloud technologies, and virtualized environments.
+        </p>
+        <div class="about-pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🔒</div>
+            <h4>Network Security</h4>
+            <p>Sophos, FortiGate &amp; Cisco Meraki firewall administration and policy management.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">☁️</div>
+            <h4>Microsoft 365</h4>
+            <p>Exchange Online, Active Directory &amp; enterprise email security administration.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🖥️</div>
+            <h4>Virtualization</h4>
+            <p>VMware ESXi deployment, virtual machine provisioning and network design.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🛡️</div>
+            <h4>Endpoint Security</h4>
+            <p>ManageEngine Endpoint Central and Seqrite endpoint protection management.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🌐</div>
+            <h4>LAN/WAN Admin</h4>
+            <p>VLAN segmentation, VPN configuration, routing and switching infrastructure.</p>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🔍</div>
+            <h4>Security Operations</h4>
+            <p>Security monitoring, incident response and threat analysis capabilities.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="about-img-side">
+          <p class="about-quote">
+            "I believe in building networks that don't just connect — they protect. Every configuration, every policy, every firewall rule is a line of defense for the businesses I serve."
+          </p>
+          <ul class="about-detail-list">
+            <li>Specialized in next-generation firewall administration with Sophos and FortiGate platforms across enterprise environments.</li>
+            <li>Hands-on experience managing campus-scale network infrastructure, including Cisco Meraki wireless and switching at NIT Andhra Pradesh.</li>
+            <li>Certified professional with CCNP, CCNA, and a postgraduate degree in Cyber Security — combining theoretical depth with practical field experience.</li>
+            <li>Actively maintains a personal cybersecurity lab featuring Kali Linux, Wazuh, and Security Onion for continuous learning and threat simulation.</li>
+            <li>Comfortable working across SMB to enterprise scale deployments, from 22-switch campus networks to cloud-hosted ERP infrastructure.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Career History</span>
+      <h2 class="section-title">Professional Experience</h2>
+      <p class="section-desc">A track record of delivering secure, scalable network solutions across enterprise and institutional environments.</p>
+    </div>
+    <div class="timeline">
+
+      <!-- Job 1 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">Dec 2025<br>– Present</div>
+          <div class="timeline-type">Full-time</div>
+        </div>
+        <div class="timeline-right">
+          <div class="exp-card">
+            <div class="exp-header">
+              <div class="exp-role">Network Security Engineer</div>
+              <div class="exp-company">Prominent Contact India Pvt Ltd</div>
+              <span class="exp-current">● Current</span>
+            </div>
+            <div class="exp-tags">
+              <span class="exp-tag">Sophos Firewall</span>
+              <span class="exp-tag">VPN Configuration</span>
+              <span class="exp-tag">Microsoft 365</span>
+              <span class="exp-tag">Email Security</span>
+              <span class="exp-tag">Endpoint Security</span>
+              <span class="exp-tag">ManageEngine Endpoint Central</span>
+              <span class="exp-tag">Seqrite Endpoint Security</span>
+              <span class="exp-tag">Security Monitoring</span>
+              <span class="exp-tag">Incident Response</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contract -->
+      <div class="timeline-item reveal">
+        <div class="timeline-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">Mar 2025<br>– May 2025</div>
+          <div class="timeline-type">Contract</div>
+        </div>
+        <div class="timeline-right">
+          <div class="exp-card">
+            <div class="exp-header">
+              <div class="exp-role">Network Support Engineer</div>
+              <div class="exp-company">National Institute of Technology Andhra Pradesh</div>
+              <span class="exp-contract">Contract</span>
+            </div>
+            <div class="exp-tags">
+              <span class="exp-tag">Cisco Meraki</span>
+              <span class="exp-tag">Campus Network Management</span>
+              <span class="exp-tag">Wireless Infrastructure</span>
+              <span class="exp-tag">VLAN Management</span>
+              <span class="exp-tag">Network Troubleshooting</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Job 2 -->
+      <div class="timeline-item reveal">
+        <div class="timeline-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">Oct 2024<br>– Nov 2025</div>
+          <div class="timeline-type">Full-time</div>
+        </div>
+        <div class="timeline-right">
+          <div class="exp-card">
+            <div class="exp-header">
+              <div class="exp-role">Jr. Network Engineer</div>
+              <div class="exp-company">Mazenet Solution Pvt Ltd</div>
+            </div>
+            <div class="exp-tags">
+              <span class="exp-tag">Cisco Networking</span>
+              <span class="exp-tag">VLAN Configuration</span>
+              <span class="exp-tag">FortiGate Firewall</span>
+              <span class="exp-tag">Sophos Firewall</span>
+              <span class="exp-tag">VMware ESXi</span>
+              <span class="exp-tag">VPN Setup</span>
+              <span class="exp-tag">LAN/WAN Administration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Technical Expertise</span>
+      <h2 class="section-title">Core Competencies</h2>
+      <p class="section-desc">Hands-on proficiency across security, networking, Microsoft cloud, and virtualization stacks.</p>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-card reveal">
+        <div class="skill-card-header">
+          <div class="skill-icon">🔥</div>
+          <h3>Network Security</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-name">Sophos Firewall</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">FortiGate Firewall</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Cisco Meraki</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-header">
+          <div class="skill-icon">🛡️</div>
+          <h3>Endpoint Security</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-name">ManageEngine Endpoint Central</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Seqrite Endpoint Security</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-header">
+          <div class="skill-icon">☁️</div>
+          <h3>Microsoft Technologies</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-name">Microsoft 365</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Exchange Online</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:84%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Active Directory</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Windows Server</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-header">
+          <div class="skill-icon">🌐</div>
+          <h3>Networking</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-name">Routing &amp; Switching</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">VLAN / VPN</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">DHCP / DNS</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">TCP/IP</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-header">
+          <div class="skill-icon">💻</div>
+          <h3>Virtualization</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-name">VMware ESXi</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:86%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Virtual Machines</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Virtual Networking</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-header">
+          <div class="skill-icon">📡</div>
+          <h3>Infrastructure Tools</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-name">Cisco IE5000 / Business</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:84%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">MikroTik Router</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Ruckus Access Points</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="skill-card reveal">
+        <div class="skill-card-header">
+          <div class="skill-icon">🔐</div>
+          <h3>Security &amp; Monitoring</h3>
+        </div>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-name">Security Monitoring</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:86%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Incident Response</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Threat Detection</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:84%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Vulnerability Management</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Security Operations</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Email Security</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Spam Filtering</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:86%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Phishing Protection</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:84%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Network Availability Monitoring</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Wazuh SIEM</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Security Onion</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Selected Work</span>
+      <h2 class="section-title">Key Projects</h2>
+      <p class="section-desc">Real-world infrastructure deployments designed, implemented, and secured end-to-end.</p>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-img project-img-1">
+          <span>🏗️</span>
+          <span class="project-num">01</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Tally Cloud Infrastructure Deployment</h3>
+          <p class="project-desc">Deployed a cloud-hosted Tally ERP environment on VMware ESXi with Windows virtual machines, secured behind Sophos Firewall. Configured VLANs, DHCP scoping, and RDP access for seamless remote user connectivity.</p>
+          <div class="project-tech">
+            <span class="tech-tag">VMware ESXi</span>
+            <span class="tech-tag">Sophos Firewall</span>
+            <span class="tech-tag">VLAN</span>
+            <span class="tech-tag">DHCP</span>
+            <span class="tech-tag">RDP</span>
+            <span class="tech-tag">Tally ERP</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-img project-img-2">
+          <span>🏫</span>
+          <span class="project-num">02</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">School Network Infrastructure</h3>
+          <p class="project-desc">End-to-end campus network deployment across 22 Cisco Business switches with a Cisco IE5000 core, MikroTik router, 6 VLANs for department segmentation, and dual-ISP connectivity for high-availability internet access.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Cisco IE5000</span>
+            <span class="tech-tag">MikroTik</span>
+            <span class="tech-tag">22 Switches</span>
+            <span class="tech-tag">6 VLANs</span>
+            <span class="tech-tag">Dual ISP</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-img project-img-3">
+          <span>🏢</span>
+          <span class="project-num">03</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Software Company Network Implementation</h3>
+          <p class="project-desc">Full network build-out for a software firm using FortiGate FG-40F with dual ISP failover, D-Link managed switches, Ruckus access points for wireless, and granular firewall security policies for application and user control.</p>
+          <div class="project-tech">
+            <span class="tech-tag">FortiGate FG-40F</span>
+            <span class="tech-tag">Dual ISP Failover</span>
+            <span class="tech-tag">D-Link Switches</span>
+            <span class="tech-tag">Ruckus AP</span>
+            <span class="tech-tag">Security Policies</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-img project-img-1">
+          <span>🖥️</span>
+          <span class="project-num">04</span>
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Virtual Training Lab Infrastructure Deployment</h3>
+          <p class="project-desc">Deployed and managed virtual training labs using VMware ESXi with Windows 10/11 virtual machines and configured virtual networking. Set up Sophos Firewall with DHCP, NAT, and port forwarding to provide secure student access through public IP and RDP. Handled VM provisioning, troubleshooting, and performance optimization throughout.</p>
+          <div class="project-tech">
+            <span class="tech-tag">VMware ESXi</span>
+            <span class="tech-tag">Sophos Firewall</span>
+            <span class="tech-tag">Windows 10/11</span>
+            <span class="tech-tag">DHCP</span>
+            <span class="tech-tag">NAT</span>
+            <span class="tech-tag">Port Forwarding</span>
+            <span class="tech-tag">RDP</span>
+            <span class="tech-tag">Virtual Networking</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CYBER LAB -->
+<section id="lab">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Personal Research</span>
+      <h2 class="section-title">Cybersecurity Home Lab</h2>
+      <p class="section-desc">A dedicated virtualized environment for threat simulation, security monitoring, and continuous learning in offensive and defensive security techniques.</p>
+    </div>
+    <div class="lab-grid">
+      <div class="reveal">
+        <div class="lab-tools-title">Lab Stack</div>
+        <div class="lab-tools">
+          <div class="lab-tool"><div class="lab-tool-dot" style="background:#E8232A"></div> Sophos Firewall</div>
+          <div class="lab-tool"><div class="lab-tool-dot" style="background:#557C94"></div> Kali Linux</div>
+          <div class="lab-tool"><div class="lab-tool-dot" style="background:#008BBB"></div> Security Onion</div>
+          <div class="lab-tool"><div class="lab-tool-dot" style="background:#005571"></div> Wazuh SIEM</div>
+          <div class="lab-tool"><div class="lab-tool-dot" style="background:#E95420"></div> Ubuntu Linux</div>
+          <div class="lab-tool"><div class="lab-tool-dot" style="background:#0078D4"></div> Windows</div>
+          <div class="lab-tool"><div class="lab-tool-dot" style="background:#607078"></div> VMware Workstation</div>
+        </div>
+        <div class="lab-capabilities">
+          <div class="lab-cap">
+            <div class="lab-cap-icon">🔍</div>
+            <div class="lab-cap-text"><h4>Threat Detection</h4><p>Simulating attack vectors and validating detection rules across SIEM and IDS platforms.</p></div>
+          </div>
+          <div class="lab-cap">
+            <div class="lab-cap-icon">🧱</div>
+            <div class="lab-cap-text"><h4>Network Segmentation</h4><p>Designing isolated VLAN environments to contain lateral movement and blast radius.</p></div>
+          </div>
+          <div class="lab-cap">
+            <div class="lab-cap-icon">📊</div>
+            <div class="lab-cap-text"><h4>Security Monitoring</h4><p>24/7 log ingestion via Wazuh and Security Onion with custom alert correlation rules.</p></div>
+          </div>
+          <div class="lab-cap">
+            <div class="lab-cap-icon">🧪</div>
+            <div class="lab-cap-text"><h4>Security Testing</h4><p>Offensive security exercises with Kali Linux to validate defensive posture and patch gaps.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="lab-visual">
+          <span class="dim">root@seclab:~$ </span><span>sudo wazuh-control status</span><br>
+          <span class="dim">Wazuh Manager........... </span><span class="blue">running [PID 1142]</span><br>
+          <span class="dim">Wazuh Agent......... </span><span class="blue">running [PID 1187]</span><br><br>
+          <span class="dim">root@seclab:~$ </span><span>tail -f /var/log/alerts.log</span><br>
+          <span class="yellow">2026-06-09 08:13:42 ALERT: Brute force attempt on SSH</span><br>
+          <span class="dim">  Src IP: 192.168.10.44 | Rule: 5763</span><br>
+          <span class="dim">  Action: </span><span class="red">BLOCKED by Sophos FW policy</span><br><br>
+          <span class="dim">2026-06-09 08:14:01 INFO: VLAN 20 traffic baseline</span><br>
+          <span class="dim">  Flow: normal | Anomaly score: 0.03</span><br><br>
+          <span class="dim">root@seclab:~$ </span><span>suricata-update</span><br>
+          <span class="blue">No new rules. </span><span class="dim">Engine up to date.</span><br><br>
+          <span class="dim">root@seclab:~$ </span><span class="blue">_</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Credentials</span>
+      <h2 class="section-title">Certifications</h2>
+      <p class="section-desc">Industry-recognized qualifications validating technical expertise in networking, security, and Microsoft technologies.</p>
+    </div>
+    <div class="certs-grid">
+
+      <div class="cert-card reveal">
+        <div class="cert-logo">🏆</div>
+        <h3>Cisco Certified Network Professional</h3>
+        <p>Training &amp; Certification<br>Systech Academy, Coimbatore</p>
+        <div class="cert-verified">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 0a5 5 0 1 0 0 10A5 5 0 0 0 5 0zm-.5 7.5L2 5l.7-.7 1.8 1.8 3.3-3.3.7.7-4 4z"/></svg>
+          Certified
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-logo">🎓</div>
+        <h3>Cisco Certified Network Associate</h3>
+        <p>Training &amp; Certification<br>Systech Academy, Coimbatore</p>
+        <div class="cert-verified">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 0a5 5 0 1 0 0 10A5 5 0 0 0 5 0zm-.5 7.5L2 5l.7-.7 1.8 1.8 3.3-3.3.7.7-4 4z"/></svg>
+          Certified
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-logo">🪟</div>
+        <h3>Microsoft Technology</h3>
+        <p>Training<br>Systech Academy, Coimbatore</p>
+        <div class="cert-verified">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 0a5 5 0 1 0 0 10A5 5 0 0 0 5 0zm-.5 7.5L2 5l.7-.7 1.8 1.8 3.3-3.3.7.7-4 4z"/></svg>
+          Certified
+        </div>
+      </div>
+
+      <div class="cert-card reveal">
+        <div class="cert-logo">🔒</div>
+        <h3>M.Sc. Cyber Security</h3>
+        <p>Manonmaniam Sundaranar University<br>Postgraduate Degree</p>
+        <div class="cert-verified">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><path d="M5 0a5 5 0 1 0 0 10A5 5 0 0 0 5 0zm-.5 7.5L2 5l.7-.7 1.8 1.8 3.3-3.3.7.7-4 4z"/></svg>
+          Completed
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Academic Background</span>
+      <h2 class="section-title">Education</h2>
+      <p class="section-desc">A strong academic foundation in cyber security and computer science, complementing hands-on industry experience.</p>
+    </div>
+    <div class="edu-grid">
+
+      <div class="edu-card reveal">
+        <div class="edu-icon">🔐</div>
+        <div class="edu-degree">Master of Science</div>
+        <div class="edu-field">Cyber Security</div>
+        <div class="edu-meta">Postgraduate · Tamil Nadu, India</div>
+      </div>
+
+      <div class="edu-card reveal">
+        <div class="edu-icon">💻</div>
+        <div class="edu-degree">Bachelor of Science</div>
+        <div class="edu-field">Computer Science</div>
+        <div class="edu-meta">Undergraduate · Tamil Nadu, India</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Get in Touch</span>
+      <h2 class="section-title">Let's Connect</h2>
+      <p class="section-desc">Open to full-time roles, contract engagements, and consulting opportunities in network and security engineering.</p>
+    </div>
+    <div class="contact-grid">
+
+      <div class="reveal">
+        <div class="contact-info">
+          <h3>Ready to secure your infrastructure?</h3>
+          <p>Whether you're looking for a network security engineer, planning a firewall deployment, or need Microsoft 365 administration — reach out and let's discuss how I can add value to your team.</p>
+        </div>
+        <div class="contact-items">
+          <a href="mailto:sivakumarskm23@gmail.com" class="contact-item">
+            <div class="contact-item-icon">✉️</div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-value">sivakumarskm23@gmail.com</div>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/sivakumar-mathappan-2745891a7" target="_blank" class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#60A5FA"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">LinkedIn</div>
+              <div class="contact-item-value">linkedin.com/in/sivakumar-mathappan</div>
+            </div>
+          </a>
+          <a href="https://wa.me/918489037062" target="_blank" class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">WhatsApp</div>
+              <div class="contact-item-value">+91 8489037062</div>
+            </div>
+          </a>
+          <div class="contact-item" style="cursor:default">
+            <div class="contact-item-icon">📍</div>
+            <div>
+              <div class="contact-item-label">Location</div>
+              <div class="contact-item-value">Salem, Tamil Nadu, 636303</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="contact-form">
+          <div class="form-group">
+            <label class="form-label" for="name">Full Name</label>
+            <input class="form-input" type="text" id="name" placeholder="Your full name" autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input class="form-input" type="email" id="email" placeholder="your@email.com" autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-textarea" id="message" placeholder="Tell me about the role or opportunity…"></textarea>
+          </div>
+          <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="handleSubmit()">
+            Send Message
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESUME DOWNLOAD -->
+<section id="resume">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label">Resume</span>
+      <h2 class="section-title">Download My Resume</h2>
+      <p class="section-desc">Get a complete overview of my experience, certifications, and technical skills in one document.</p>
+    </div>
+
+    <div class="resume-card reveal">
+      <div class="resume-card-left">
+        <h3>Sivakumar Mathappan — Network Security Engineer | CCNA | CCNP | MSc Cyber Security</h3>
+        <p>2 years of experience in Network Security, Firewall Administration, Microsoft 365, VMware ESXi Virtualization, Endpoint Security, and Enterprise IT Infrastructure. Skilled in Sophos Firewall, FortiGate Firewall, Endpoint Central, Seqrite Endpoint Security, VPN Management, and Security Operations.</p>
+        <div class="resume-meta">
+          <div class="resume-meta-item">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" color="#60A5FA"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span>PDF Format</span>
+          </div>
+          <div class="resume-meta-item">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" color="#60A5FA"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Last Updated: 2025</span>
+          </div>
+          <div class="resume-meta-item">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" color="#10B981"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span style="color: var(--green);">Ready to Download</span>
+          </div>
+        </div>
+      </div>
+      <div class="resume-card-right">
+        <a href="resume.pdf" download="sivakumarresume.pdf" class="btn-download-main">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"/></svg>
+          Download Resume
+        </a>
+        <a href="resume.pdf" target="_blank" class="btn-view-main">
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          View Online
+        </a>
+      </div>
+    </div>
+
+    <div class="resume-preview-row">
+      <div class="resume-preview-chip reveal">
+        <div class="resume-preview-chip-icon">🔥</div>
+        <div>
+          <h4>Firewall & VPN</h4>
+          <p>Sophos, FortiGate, Cisco Meraki MX, SSL VPN, NAT, ACL policies</p>
+        </div>
+      </div>
+      <div class="resume-preview-chip reveal">
+        <div class="resume-preview-chip-icon">☁️</div>
+        <div>
+          <h4>Microsoft 365</h4>
+          <p>Exchange Online, Active Directory, Windows Server 2019/2022</p>
+        </div>
+      </div>
+      <div class="resume-preview-chip reveal">
+        <div class="resume-preview-chip-icon">🖥️</div>
+        <div>
+          <h4>Virtualization</h4>
+          <p>VMware ESXi, VM provisioning, virtual networking, NAS backup</p>
+        </div>
+      </div>
+      <div class="resume-preview-chip reveal">
+        <div class="resume-preview-chip-icon">🛡️</div>
+        <div>
+          <h4>Endpoint Security</h4>
+          <p>ManageEngine Endpoint Central, Seqrite, patch management</p>
+        </div>
+      </div>
+      <div class="resume-preview-chip reveal">
+        <div class="resume-preview-chip-icon">🌐</div>
+        <div>
+          <h4>Networking</h4>
+          <p>LAN/WAN, VLAN design, switching, DHCP/DNS, TCP/IP</p>
+        </div>
+      </div>
+      <div class="resume-preview-chip reveal">
+        <div class="resume-preview-chip-icon">🏆</div>
+        <div>
+          <h4>Certifications</h4>
+          <p>CCNP · CCNA · MCSA · MSc Cyber Security</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copy">© 2026 Sivakumar Mathappan. All Rights Reserved.</p>
+    <div class="footer-links">
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuClose = document.getElementById('menuClose');
+  hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+  menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  document.querySelectorAll('.menu-link').forEach(a => {
+    a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // Nav active state on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--white)' : '';
+    });
+  });
+
+  // Contact form
+  function handleSubmit() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    if (!name || !email || !message) {
+      alert('Please fill in all fields.');
+      return;
+    }
+    alert('Thanks, ' + name + '! Your message has been sent. I\'ll get back to you soon.');
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('message').value = '';
+  }
+</script>
+</body>
+</html>
